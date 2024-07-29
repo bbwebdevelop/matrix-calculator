@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>matrix calculator | bbwebdevelop</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <script>
+      document.documentElement.className = "js";
+      var supportsCssVars = function () {
+        var e,
+          t = document.createElement("style");
+        return (
+          (t.innerHTML = "root: { --tmp-var: bold; }"),
+          document.head.appendChild(t),
+          (e = !!(
+            window.CSS &&
+            window.CSS.supports &&
+            window.CSS.supports("font-weight", "var(--tmp-var)")
+          )),
+          t.parentNode.removeChild(t),
+          e
+        );
+      };
+      supportsCssVars() ||
+        alert(
+          "PLEASE VIEW THIS DEMO IN A MODERN BROWSER THAT SUPPORTS CSS VARIABLES."
+        );
+    </script>
+    <link rel="stylesheet" href="https://use.typekit.net/ytn8osp.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>MATRIX CALCULATOR</h1>
+      <div class="matrix-container">
+        <div class="matrix-wrapper">
+          <label for="matrixA">MATRIX A:</label>
+          <div id="matrixA" class="matrix"></div>
+          <div class="controls">
+            <button onclick="resizeMatrix('A', 1)">+</button>
+            <button onclick="resizeMatrix('A', -1)">-</button>
+          </div>
+        </div>
+        <div class="matrix-wrapper">
+          <label for="matrixB">MATRIX B:</label>
+          <div id="matrixB" class="matrix"></div>
+          <div class="controls">
+            <button onclick="resizeMatrix('B', 1)">+</button>
+            <button onclick="resizeMatrix('B', -1)">-</button>
+          </div>
+        </div>
+      </div>
+      <div class="operations">
+        <button onclick="swapMatrices()">SWAP MATRICES</button>
+        <button onclick="calculate('add')">A + B</button>
+        <button onclick="calculate('subtract')">A - B</button>
+        <button onclick="calculate('multiply')">A × B</button>
+        <button onclick="calculate('power')">TO THE POWER OF</button>
+        <input type="number" id="powerInput" placeholder="..." />
+        <button onclick="calculate('determinant')">DETERMINANT OF A</button>
+      </div>
+
+      <div id="result">
+        <h2>RESULT:</h2>
+        <div id="resultMatrix" class="matrix"></div>
+      </div>
+    </div>
+    <a href="https://bbwebdevelop.pl" class="footer-link">bbwebdevelop</a>
+    <script src="script.js"></script>
+  </body>
+</html>
